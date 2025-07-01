@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import serveIndex from 'serve-index';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -14,6 +15,12 @@ app.set('views', path.join(process.cwd(), 'views'));
 app.use(express.static(path.join(process.cwd(), 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(
+  '/.well-known',
+  express.static('.well-known'),
+  serveIndex('.well-known')
+);
 
 app.use('/paypal', paypalRoutes);
 app.use('/paypal', paypalWebhooks);
