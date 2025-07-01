@@ -1,6 +1,6 @@
 # PayPal Server SDK Example
 
-This project is a Node.js Express server using EJS templates and integrates PayPal Buttons and Hosted Card Fields with the PayPal SDK.
+This project is a Node.js Express server using EJS templates and integrates PayPal Buttons and Hosted Card Fields with the PayPal Server SDK.
 
 ## Setup
 
@@ -23,8 +23,5 @@ This project is a Node.js Express server using EJS templates and integrates PayP
 
 - Express server
 - EJS template engine
+- PayPal Server SDK
 - PayPal Buttons and Hosted Card Fields integration
-
-## License
-
-MIT
