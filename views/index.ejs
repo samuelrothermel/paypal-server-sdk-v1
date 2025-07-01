@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PayPal Integration</title>
-    <script src="https://www.paypal.com/sdk/js?client-id=<%= process.env.PAYPAL_CLIENT_ID %>&components=buttons,hosted-fields&enable-funding=card"></script>
+    <title>PayPal Server SDK Integrations</title>
 </head>
 <body>
-    <h1>PayPal Buttons & Hosted Card Fields</h1>
-    <div id="paypal-button-container"></div>
-    <div id="card-fields-container"></div>
-    <script src="/js/paypal.js"></script>
+    <hr>
+    <h2>Demos</h2>
+    <ul>
+        <li>
+            <a href="/checkout">Checkout Demo</a> – Example of a classic PayPal checkout flow.
+        </li>
+        <li>
+            <a href="/upstream">Upstream Demo</a> – Demonstrates upstream payment integration.
+        </li>
+        <li>
+            <a href="/subscriptions">Subscriptions Demo</a> – Shows how to set up and manage PayPal subscriptions.
+        </li>
+    </ul>
 </body>
 </html>

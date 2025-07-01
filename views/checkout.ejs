@@ -3,11 +3,8 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://www.paypalobjects.com/webstatic/en_US/developer/docs/css/cardfields.css"
-        />
+        <link rel="stylesheet" type="text/css" href="https://www.paypalobjects.com/webstatic/en_US/developer/docs/css/cardfields.css" />
+        <link rel="stylesheet" type="text/css" href="/css/checkout.css" />
         <title>PayPal JS SDK Advanced Integration - Checkout Flow</title>
         <script
             src="https://www.paypal.com/sdk/js?client-id=<%= clientId %>&buyer-country=US&currency=USD&components=buttons,card-fields&enable-funding=venmo"
@@ -15,77 +12,64 @@
         ></script>
     </head>
     <body>
-        <div id="paypal-button-container" class="paypal-button-container"></div>
-        <!-- Containers for Card Fields hosted by PayPal -->
-        <div id="card-form" class="card_container">
-            <div id="card-name-field-container"></div>
-            <div id="card-number-field-container"></div>
-            <div id="card-expiry-field-container"></div>
-            <div id="card-cvv-field-container"></div>
-
-           
-            <div>
-                <label for="card-billing-address-line-1">Billing Address</label>
-                <input
-                    type="text"
-                    id="card-billing-address-line-1"
-                    name="card-billing-address-line-1"
-                    autocomplete="off"
-                    placeholder="Address line 1"
-                />
+        <div class="container">
+            <div class="store-header">
+                <h2>Sample Store</h2>
+                <p>Secure Checkout</p>
             </div>
-            <div>
-                <input
-                    type="text"
-                    id="card-billing-address-line-2"
-                    name="card-billing-address-line-2"
-                    autocomplete="off"
-                    placeholder="Address line 2"
-                />
+            <div class="product-summary">
+                <img class="product-img" src="https://images.unsplash.com/photo-1513708927688-890fe41c3b6b?auto=format&fit=crop&w=400&q=80" alt="Sample Product" />
+                <div class="product-details">
+                    <div class="product-title">Wireless Headphones</div>
+                    <div class="product-price">$59.99</div>
+                    <div style="font-size: 0.93rem; color: #666;">High-quality sound, Bluetooth 5.0, 20h battery</div>
+                </div>
             </div>
-            <div>
-                <input
-                    type="text"
-                    id="card-billing-address-admin-area-line-1"
-                    name="card-billing-address-admin-area-line-1"
-                    autocomplete="off"
-                    placeholder="Admin area line 1"
-                />
+            <div class="checking-shipping-address">
+                <div class="checkout-shipping-address-label">Shipping Address</div>
+                <input type="text" id="shipping-address-line-1" name="shipping-address-line-1" autocomplete="off" placeholder="Address line 1" />
+                <input type="text" id="shipping-address-line-2" name="shipping-address-line-2" autocomplete="off" placeholder="Address line 2" />
+                <input type="text" id="shipping-address-admin-area-line-1" name="shipping-address-admin-area-line-1" autocomplete="off" placeholder="City" />
+                <input type="text" id="shipping-address-admin-area-line-2" name="shipping-address-admin-area-line-2" autocomplete="off" placeholder="State/Province" />
+                <input type="text" id="shipping-address-country-code" name="shipping-address-country-code" autocomplete="off" placeholder="Country code (e.g. US)" />
+                <input type="text" id="shipping-address-postal-code" name="shipping-address-postal-code" autocomplete="off" placeholder="Postal/zip code" />
             </div>
-            <div>
-                <input
-                    type="text"
-                    id="card-billing-address-admin-area-line-2"
-                    name="card-billing-address-admin-area-line-2"
-                    autocomplete="off"
-                    placeholder="Admin area line 2"
-                />
+            <div class="checkout-shipping-method">
+                <div class="checkout-shipping-method-label">Shipping Method</div>
+                <select id="shipping-method" name="shipping-method">
+                    <option value="standard">Standard Shipping (5-7 days)</option>
+                    <option value="express">Express Shipping (2-3 days)</option>
+                </select>
             </div>
-            <div>
-                <input
-                    type="text"
-                    id="card-billing-address-country-code"
-                    name="card-billing-address-country-code"
-                    autocomplete="off"
-                    placeholder="Country code"
-                />
+            <div class="checkout-total">
+                <div class="checkout-total-label">Total</div>
+                <div class="checkout-total-tax">Tax (estimated)</div>
+                <div class="checkout-total-shipping">Shipping (estimated)</div>
+                <div class="checkout-total-amount">$59.99</div>
             </div>
-            <div>
-                <input
-                    type="text"
-                    id="card-billing-address-postal-code"
-                    name="card-billing-address-postal-code"
-                    autocomplete="off"
-                    placeholder="Postal/zip code"
-                />
+            <div class="checkout-section">
+                <div id="paypal-button-container"></div>
+                <div class="card_container" id="card-form">
+                    <!-- <label for="card-name-field-container">Cardholder Name</label> -->
+                    <div id="card-name-field-container"></div>
+                    <!-- <label for="card-number-field-container">Card Number</label> -->
+                    <div id="card-number-field-container"></div>
+                    <!-- <label for="card-expiry-field-container">Expiry Date</label> -->
+                    <div id="card-expiry-field-container"></div>
+                    <!-- <label for="card-cvv-field-container">CVV</label> -->
+                    <div id="card-cvv-field-container"></div>
+                    <label for="card-billing-address-line-1">Billing Address</label>
+                    <input type="text" id="card-billing-address-line-1" name="card-billing-address-line-1" autocomplete="off" placeholder="Address line 1" />
+                    <input type="text" id="card-billing-address-line-2" name="card-billing-address-line-2" autocomplete="off" placeholder="Address line 2" />
+                    <input type="text" id="card-billing-address-admin-area-line-1" name="card-billing-address-admin-area-line-1" autocomplete="off" placeholder="City" />
+                    <input type="text" id="card-billing-address-admin-area-line-2" name="card-billing-address-admin-area-line-2" autocomplete="off" placeholder="State/Province" />
+                    <input type="text" id="card-billing-address-country-code" name="card-billing-address-country-code" autocomplete="off" placeholder="Country code (e.g. US)" />
+                    <input type="text" id="card-billing-address-postal-code" name="card-billing-address-postal-code" autocomplete="off" placeholder="Postal/zip code" />
+                    <button id="card-field-submit-button" type="button">Pay now with Card</button>
+                </div>
             </div>
-           
-            <br /><br />
-            <button id="card-field-submit-button" type="button">
-                Pay now with Card
-            </button>
+            <p id="result-message"></p>
         </div>
-        <p id="result-message"></p>
         <script src="/js/checkout.js"></script>
     </body>
 </html>

@@ -13,9 +13,10 @@ paypal
       layout: 'vertical',
       color: 'gold',
       label: 'paypal',
+      height: 40,
     },
     message: {
-      amount: 100,
+      amount: 59.99,
     },
   })
   .render('#paypal-button-container');
@@ -26,7 +27,7 @@ const cardField = window.paypal.CardFields({
   onApprove: onApproveCallback,
   style: {
     input: {
-      'font-size': '16px',
+      'font-size': '14px',
       'font-family': 'courier, monospace',
       'font-weight': 'lighter',
       color: '#ccc',

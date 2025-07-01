@@ -38,6 +38,10 @@ app.get('/upstream', (req, res) => {
   res.render('upstream', { clientId: process.env.PAYPAL_CLIENT_ID });
 });
 
+app.get('/subscriptions', (req, res) => {
+  res.render('subscriptions', { clientId: process.env.PAYPAL_CLIENT_ID });
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
